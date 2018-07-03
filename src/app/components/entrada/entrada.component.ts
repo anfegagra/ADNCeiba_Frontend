@@ -11,6 +11,9 @@ export class EntradaComponent implements OnInit {
 
   placa = '';
   cilindraje;
+  mostrarMensaje: boolean = false;
+  mensajeRespuesta: String = "";
+  error: boolean= false;
   @Output() vehiculoGuardado = new EventEmitter<boolean>(); 
 
   vehiculos: Vehiculo[];
@@ -23,10 +26,24 @@ export class EntradaComponent implements OnInit {
   registrarEntrada() {
     const vehiculo = this.crearVehiculo(this.cilindraje);
     this.vehiculoService.postRegistrarIngreso(vehiculo).subscribe(res => {
-      this.vehiculoService.getVehiculos().subscribe(res => {
-        this.vehiculoGuardado.emit();
-        console.log(res);
-      });
+      this.mostrarMensaje =true;
+      if(res != null){
+        this.error=false;
+        this.vehiculoService.getVehiculos().subscribe(res => {
+          this.vehiculoGuardado.emit();
+          this.mensajeRespuesta = "Registro exitoso!";
+          setTimeout(()=>{
+            this.mostrarMensaje = false;
+          }, 3000);
+          console.log(res);
+        });
+      } else {
+        this.error=true;
+        this.mensajeRespuesta = "Registro fallido!";
+        setTimeout(()=>{          
+          this.mostrarMensaje = false;
+        }, 3000);
+      }     
     });
   }
 

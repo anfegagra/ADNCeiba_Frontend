@@ -20,6 +20,7 @@ export class SalidaComponent implements OnInit {
   registrarSalida(placa){
     this.vehiculoService.postRegistrarSalida(placa).subscribe(res => {
       console.log(res);
+      alert("El total a pagar es: " + res);
       this.vehiculos.splice(this.vehiculos.indexOf(placa),1);
     });
   }
