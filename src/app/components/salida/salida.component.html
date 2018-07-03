@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of vehiculos">
+      <tr *ngFor="let item of vehiculos; let i=index">
         <td>{{item.placa}}</td>
         <td>{{item.tipo}}</td>
         <td>{{item.fechaAMostrar}}</td>
