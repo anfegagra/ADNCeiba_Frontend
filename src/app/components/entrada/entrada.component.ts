@@ -30,11 +30,11 @@ export class EntradaComponent implements OnInit {
       if(res != null){
         this.error=false;
         this.vehiculoService.getVehiculos().subscribe(res => {
-          this.vehiculoGuardado.emit();
-          this.mensajeRespuesta = "Registro exitoso!";
-          setTimeout(()=>{
-            this.mostrarMensaje = false;
-          }, 3000);
+        this.vehiculoGuardado.emit();
+        this.mensajeRespuesta = "Registro exitoso!";
+        setTimeout(()=>{
+          this.mostrarMensaje = false;
+        }, 3000);
           console.log(res);
         });
       } else {

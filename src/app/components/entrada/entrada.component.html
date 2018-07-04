@@ -9,6 +9,6 @@
 <br>
 <button type="button" id="botonRegistrar" class="btn btn-dark" style="float: left;" (click)="registrarEntrada(placa, cilindraje)">Registrar</button>
 <br><br><br>
-<div *ngIf="mostrarMensaje"  [ngClass]="[error ? 'alert alert-danger' : 'alert alert-success']" id="contenedorRespuesta">
+<div *ngIf="mostrarMensaje" [ngClass]="[error ? 'alert alert-danger' : 'alert alert-success']" id="contenedorRespuesta">
   {{mensajeRespuesta}}
 </div>

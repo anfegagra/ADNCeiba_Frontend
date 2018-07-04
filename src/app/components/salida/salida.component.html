@@ -15,8 +15,15 @@
         <td>{{item.placa}}</td>
         <td>{{item.tipo}}</td>
         <td>{{item.fechaAMostrar}}</td>
-        <button type="button" id="{{item.placa}}" class="btn btn-dark" name ="botonRetirar"(click)="registrarSalida(item.placa)">Retirar</button>
+        <button type="button" id="{{item.placa}}" class="btn btn-dark" name ="botonRetirar" (click)="registrarSalida(item.placa)">Retirar</button>
       </tr>
     </tbody>
   </table>
+</div>
+<br>
+<div *ngIf="mostrarMensajeValor" class="alert alert-success" id="valorParqueo">
+  {{valorParqueo}}
+</div>
+<div *ngIf="mostrarMensaje" class="alert alert-success" id="contenedorRespuesta">
+  {{mensajeRespuesta}}
 </div>
